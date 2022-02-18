@@ -2,6 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { SwapWidget } from '@uniswap/widgets'
+import ethers from 'ethers'
+
+const wallet = ethers.Wallet.createRandom()
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +17,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <SwapWidget 
+          provider={wallet.provider}
+          jsonRpcEndpoint="https://mainnet.infura.io/v3/e462050a770c4b89924c4194cf660acb"
+        />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
